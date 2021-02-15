@@ -120,7 +120,7 @@ body {
 	background-image: url();
 	background-color: white;
 }
-</body>
+
 </style>
 </head>
 

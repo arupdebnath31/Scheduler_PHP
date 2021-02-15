@@ -10,13 +10,14 @@
 
 <?php
 
-  $conn = mysql_connect('localhost', 'root', '');
+  $conn = mysqli_connect('localhost', 'root', '');
    if (!$conn)
     {
-   die('Could not connect: ' . mysql_error());
+   die('Could not connect: ' . mysqli_error($connect));
   }
   //echo 'Connected successfully' . 'iancuello';
-  mysql_select_db("insertion", $conn);
+  mysqli_select_db($connect,"insertion")  or die(mysqli_error($connect)); //mysqli_select_db(connection, name);
+
 ?>
 
 
@@ -41,7 +42,7 @@
 			$course =$_GET['course'];
 			$subject =$_GET['subject'];
 
-			$result = mysql_query("SELECT `faculty`,`course`, `subject` FROM `faculty`,`course`,`subject`, WHERE faculty_id=faculty_id and course_id=course_id and subject_id=subject_id");
+			$result = mysqli_query($connect,"SELECT `faculty`,`course`, `subject` FROM `faculty`,`course`,`subject`, WHERE faculty_id=faculty_id and course_id=course_id and subject_id=subject_id");
 			//HAVING course_id='$pCourse' and sem_id='$psem' and year_id='$pSy'
 		if (!$result) 
 			{
@@ -79,7 +80,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 			//HAVING course_id='$pCourse' and sem_id='$psem' and year_id='$pSy'
@@ -121,7 +122,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 			//HAVING course_id='$pCourse' and sem_id='$psem' and year_id='$pSy'
@@ -163,7 +164,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 			//HAVING course_id='$pCourse' and sem_id='$psem' and year_id='$pSy'
@@ -205,7 +206,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 			//HAVING course_id='$pCourse' and sem_id='$psem' and year_id='$pSy'
@@ -251,7 +252,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 			//HAVING course_id='$pCourse' and sem_id='$psem' and year_id='$pSy'
@@ -293,7 +294,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 			//HAVING course_id='$pCourse' and sem_id='$psem' and year_id='$pSy'
@@ -335,7 +336,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 			//HAVING course_id='$pCourse' and sem_id='$psem' and year_id='$pSy'
@@ -377,7 +378,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 			//HAVING course_id='$pCourse' and sem_id='$psem' and year_id='$pSy'
@@ -419,7 +420,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 			//HAVING course_id='$pCourse' and sem_id='$psem' and year_id='$pSy'
@@ -465,7 +466,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 			//HAVING course_id='$pCourse' and sem_id='$psem' and year_id='$pSy'
@@ -507,7 +508,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 			//HAVING course_id='$pCourse' and sem_id='$psem' and year_id='$pSy'
@@ -549,7 +550,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 			//HAVING course_id='$pCourse' and sem_id='$psem' and year_id='$pSy'
@@ -591,7 +592,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -632,7 +633,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -677,7 +678,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -718,7 +719,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -759,7 +760,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -800,7 +801,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -841,7 +842,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -886,7 +887,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -927,7 +928,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -968,7 +969,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -1009,7 +1010,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -1050,7 +1051,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -1095,7 +1096,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -1136,7 +1137,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -1177,7 +1178,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -1218,7 +1219,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -1259,7 +1260,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -1304,7 +1305,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -1345,7 +1346,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -1386,7 +1387,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -1427,7 +1428,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -1468,7 +1469,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -1513,7 +1514,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -1554,7 +1555,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -1595,7 +1596,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -1636,7 +1637,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -1677,7 +1678,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -1722,7 +1723,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -1763,7 +1764,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -1804,7 +1805,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -1845,7 +1846,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -1886,7 +1887,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -1931,7 +1932,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -1972,7 +1973,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -2013,7 +2014,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -2054,7 +2055,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -2095,7 +2096,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -2140,7 +2141,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -2181,7 +2182,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -2222,7 +2223,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -2263,7 +2264,7 @@
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 			
-$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -2304,7 +2305,7 @@ $result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrS
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -2349,7 +2350,7 @@ $result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrS
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -2390,7 +2391,7 @@ $result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrS
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -2431,7 +2432,7 @@ $result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrS
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -2472,7 +2473,7 @@ $result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrS
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -2513,7 +2514,7 @@ $result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrS
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -2558,7 +2559,7 @@ $result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrS
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -2599,7 +2600,7 @@ $result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrS
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 			
-$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -2640,7 +2641,7 @@ $result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrS
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-		$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+		$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -2681,7 +2682,7 @@ $result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrS
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 
@@ -2722,7 +2723,7 @@ $result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrS
 			$pSy =$_REQUEST['pSy'];
 			$psem=$_REQUEST['psem'];
 
-			$result = mysql_query("SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
+			$result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`course_yrSec`,`subjects`.`sub_code`,`profile`.`teacher_name`,`school_yr`.`school_year` FROM `sched`,`room`,`course`,`subjects`,`profile` ,`school_yr`  WHERE sched.room_id=room.room_id and sched.course_id=course.course_id and sched.sub_id=subjects.sub_id and sched.teacher_id=profile.teacher_id
  and sched.year_id=school_yr.year_id HAVING teacher_id='$pT' and sem_id='$psem' 
   			");
 		if (!$result) 

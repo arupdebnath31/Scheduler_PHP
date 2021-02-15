@@ -10,7 +10,7 @@
 body {
 	background-color: white;
 }
-</body>
+
 </style>
 </head>
 <body>

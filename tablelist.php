@@ -21,11 +21,12 @@
                $database   = "insertion"; 
 			   
                // select database
-			   mysql_connect($host,$username,$password) or die(mysql_error()); 
-               mysql_select_db($database) or die(mysql_error()); 
+			   $connect = mysqli_connect("localhost", "root", "")or die("couldn't connect to the database!");
+               mysqli_select_db($connect,"insertion")  or die(mysqli_error($connect)); //mysqli_select_db(connection, name);
+
 
                     $query = ("SELECT * FROM addtable");
-                    $result = mysql_query($query) or die(mysql_error());
+                    $result = mysqli_query($connect,$query) or die(mysqli_error($connect));
                     echo "<div class='container'><table width='' class='table table-bordered' border='1' >
                             <tr>
                                 <th>Faculty</th>
@@ -36,7 +37,7 @@
 								<th>End time</th>
                                 <th>Action</th>
                             </tr>";
-                        while($row = mysql_fetch_array($result))
+                        while($row = mysqli_fetch_assoc($result))
                         {
                         echo "<tr>";
                         echo "<td>" . $row['faculty'] . "</td>";
@@ -66,11 +67,11 @@
     }
     if(isset($_POST['id']))
     {
-    $id = mysql_real_escape_string($_POST['id']);
-    $sql = mysql_query("DELETE FROM addtable WHERE id='$id'");
+    $id = mysqli_real_escape_string($connect,$_POST['id']);
+    $sql = mysqli_query($connect,"DELETE FROM addtable WHERE id='$id'");
     if(!$sql)
     {
-        echo ("Could not delete rows" .mysql_error());
+        echo ("Could not delete rows" .mysqli_error($connect));
     }
 	
     }

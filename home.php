@@ -42,7 +42,7 @@ while($row2 = mysqli_fetch_array($result2))
 body {
 	background-color: white;
 }
-</body>
+
 </style>
 </head>
 <body>

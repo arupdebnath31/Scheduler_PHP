@@ -23,8 +23,6 @@ td {
     height: 20px;
 }
 
-
-</body>
 </style>
 </head>
 <body><br>
@@ -41,18 +39,19 @@ td {
                $database   = "insertion"; 
                
                // select database
-               mysql_connect($host,$username,$password) or die(mysql_error()); 
-               mysql_select_db($database) or die(mysql_error()); 
+               mysqli_connect($host,$username,$password) or die(mysqli_error($connect)); 
+               mysqli_select_db($connect,"insertion")  or die(mysqli_error($connect)); //mysqli_select_db(connection, name);
+ 
 
                     $query = ("SELECT * FROM course");
-                    $result = mysql_query($query) or die(mysql_error());
+                    $result = mysqli_query($connect,$query) or die(mysqli_error($connect));
                     echo "<div class='container'><table width='' class='table table-bordered' border='1' >
                             <tr>
                                 <th>Code</th>
                                 <th>Course</th>
                                 <th>Action</th>
                             </tr>";
-                        while($row = mysql_fetch_array($result))
+                        while($row = mysqli_fetch_assoc($result))
                         {
                         echo "<tr>";
                         
@@ -79,11 +78,11 @@ td {
     }
     if(isset($_POST['course_id']))
     {
-    $course_id = mysql_real_escape_string($_POST['course_id']);
-    $sql = mysql_query("DELETE FROM course WHERE course_id='$course_id'");
+    $course_id = mysqli_real_escape_string($connect,$_POST['course_id']);
+    $sql = mysqli_query($connect,"DELETE FROM course WHERE course_id='$course_id'");
     if(!$sql)
     {
-        echo ("Could not delete rows" .mysql_error());
+        echo ("Could not delete rows" .mysqli_error($connect));
     }
     
     }

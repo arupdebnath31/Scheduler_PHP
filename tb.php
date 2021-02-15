@@ -38,11 +38,12 @@ tr:hover,tr.alt:hover
                $database   = "insertion"; 
 			   
                // select database
-			   mysql_connect($host,$username,$password) or die(mysql_error()); 
-               mysql_select_db($database) or die(mysql_error()); 
+			   mysqli_connect($host,$username,$password) or die(mysqli_error($connect)); 
+               mysqli_select_db($connect,"insertion")  or die(mysqli_error($connect)); //mysqli_select_db(connection, name);
+ 
 
                     $query = ("SELECT * FROM data");
-                    $result = mysql_query($query) or die(mysql_error());
+                    $result = mysqli_query($connect,$query) or die(mysqli_error($connect));
                     echo "<table class='table' width='99.120%' border='0' >
                             <tr class='table'>
                                 <th>name</th>
@@ -53,7 +54,7 @@ tr:hover,tr.alt:hover
 								                <th>end time</th>
                                 <th>action</th>
                             </tr>";
-                        while($row = mysql_fetch_array($result))
+                        while($row = mysqli_fetch_assoc($result))
                         {
                         echo "<tr>";
                         echo "<td>" . $row['name'] . "</td>";
@@ -82,11 +83,11 @@ tr:hover,tr.alt:hover
     }
     if(isset($_POST['id']))
     {
-    $id = mysql_real_escape_string($_POST['id']);
-    $sql = mysql_query("DELETE FROM data WHERE id='$id'");
+    $id = mysqli_real_escape_string($connect,$_POST['id']);
+    $sql = mysqli_query($connect,"DELETE FROM data WHERE id='$id'");
     if(!$sql)
     {
-        echo ("Could not delete rows" .mysql_error());
+        echo ("Could not delete rows" .mysqli_error($connect));
     }
 	
     }

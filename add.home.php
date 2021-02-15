@@ -5,7 +5,7 @@ $con = mysqli_connect ('localhost', 'root', '', 'insertion');
  {
 	 echo 'not connected to server';
  }
-mysqli_select_db($con, 'insertion') or die(mysql_error());
+mysqli_select_db($con, 'insertion') or die(mysqli_error($connect));
 	 
 
  function getPosts()

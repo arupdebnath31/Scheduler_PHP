@@ -36,24 +36,29 @@ td {
      echo "<tr>
             <td>";
                // your database connection
-         $host       = "localhost"; 
+               $host       = "localhost"; 
                $username   = "root"; 
                $password   = "";
                $database   = "insertion"; 
+
+               $connect = mysqli_connect("localhost", "root", "")or die("couldn't connect to the database!");
+               mysqli_select_db($connect,"insertion") or die ("couldn't find database!");//mysqli_select_db(connection, name);
          
                // select database
-         mysql_connect($host,$username,$password) or die(mysql_error()); 
-               mysql_select_db($database) or die(mysql_error()); 
+               mysqli_connect($host,$username,$password) or die(mysqli_error($connect)); 
+              //  mysqli_select_db($database) or die(mysqli_error($connect)); 
+	                 mysqli_select_db($connect,"insertion")  or die(mysqli_error($connect)); //mysqli_select_db(connection, name);
+
 
                     $query = ("SELECT * FROM faculty");
-                    $result = mysql_query($query) or die(mysql_error());
+                    $result = mysqli_query($connect,$query) or die(mysqli_error($connect));
                     echo "<div class='container'><table width='' class='table table-bordered' border='1' >
                             <tr>
                                 <th>Faculty</th>
                                 <th>Designation</th>
                                  <th>Action</th>
                             </tr>";
-                        while($row = mysql_fetch_array($result))
+                        while($row = mysqli_fetch_assoc($result))
                         {
                         echo "<tr>";
                         echo "<td>" . $row['faculty_name'] . "</td>";
@@ -79,11 +84,11 @@ td {
     }
     if(isset($_POST['faculty_id']))
     {
-    $faculty_id = mysql_real_escape_string($_POST['faculty_id']);
-    $sql = mysql_query("DELETE FROM faculty WHERE faculty_id='$faculty_id'");
+    $faculty_id = mysqli_real_escape_string($connect,$_POST['faculty_id']);
+    $sql = mysqli_query($connect,"DELETE FROM faculty WHERE faculty_id='$faculty_id'");
     if(!$sql)
     {
-        echo ("Could not delete rows" .mysql_error());
+        echo ("Could not delete rows" .mysqli_error($connect));
     }
   
     }
