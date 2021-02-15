@@ -1,9 +1,0 @@
-SIMPLE SCHEDULING SYSTEM IN PHP
-
-LOGIN DETAILS
-
-Username: admin
-Password: admin
-
-
-Thank You..

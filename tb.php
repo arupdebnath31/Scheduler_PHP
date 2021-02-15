@@ -24,7 +24,7 @@ tr:hover,tr.alt:hover
 
 	<div id="content">
 		<div id="form">
-
+		
 			<fieldset>
             <legend>Schedules</legend>
 <body>
@@ -32,14 +32,14 @@ tr:hover,tr.alt:hover
      echo "<tr>
             <td>";
                // your database connection
-			         $host = "localhost"; 
-               $username   = "root";
+			   $host       = "localhost"; 
+               $username   = "root"; 
                $password   = "";
-               $database   = "insertion";
-
+               $database   = "insertion"; 
+			   
                // select database
-			   mysql_connect($host,$username,$password) or die(mysql_error());
-               mysql_select_db($database) or die(mysql_error());
+			   mysql_connect($host,$username,$password) or die(mysql_error()); 
+               mysql_select_db($database) or die(mysql_error()); 
 
                     $query = ("SELECT * FROM data");
                     $result = mysql_query($query) or die(mysql_error());
@@ -69,7 +69,7 @@ tr:hover,tr.alt:hover
                         }
                     echo "</table>";
 
-            echo "</td>
+            echo "</td>           
         </tr>";
 
        // delete record
@@ -88,7 +88,7 @@ tr:hover,tr.alt:hover
     {
         echo ("Could not delete rows" .mysql_error());
     }
-
+	
     }
     ?>
 </fieldset>
@@ -102,7 +102,7 @@ tr:hover,tr.alt:hover
 </div>
 	</body>
 	</html>
-
+	
 <?php
    $path = $_SERVER['DOCUMENT_ROOT'];
    $path .= "footer.php";

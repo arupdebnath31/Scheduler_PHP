@@ -3,19 +3,19 @@ session_start();
 
   $username = $_POST['username'];
   $password = $_POST['password'];
-
+ 
   if ($username&&$password)
   {
-	 $connect = mysql_connect("localhost", "root", "")or die("couldn't connect to the database!");
-	 mysql_select_db("insertion") or die ("couldn't find database!");
-
-	 $query = mysql_query("SELECT * FROM admin WHERE username='$username'");
-
-	 $numrows = mysql_num_rows($query);
-
+	 $connect = mysqli_connect("localhost", "root", "")or die("couldn't connect to the database!");
+	 mysqli_select_db($connect,"insertion") or die ("couldn't find database!");//mysqli_select_db(connection, name);
+	 
+	 $query = mysqli_query($connect,"SELECT * FROM admin WHERE username='$username'");  //mysqli_query(connection, query, resultmode)
+	 
+	 $numrows = mysqli_num_rows($query);
+	 
 	 if($numrows!==0)
 	 {
-		 while($row = mysql_fetch_assoc($query))
+		 while($row = mysqli_fetch_assoc($query))
 		 {
 			 $dbusername = $row['username'];
 			 $dbpassword = $row['password'];
@@ -33,19 +33,19 @@ session_start();
                       alert("Wrong Password!");
                          location="index.php";
                            </script>';
-	 }
+	 }	 
 	 else
          die('<script type="text/javascript">
                       alert("That uder dont exist!");
                          location="index.php";
-                           </script>');
-
+                           </script>');		 
+	  
   }
-  else
+  else 
 	  die('<script type="text/javascript">
                       alert("Please enter a username and password!");
                          location="tb.php";
                            </script>');
-
-
+  
+	  	 
 ?>
