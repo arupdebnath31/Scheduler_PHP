@@ -36,7 +36,7 @@ session_start();
 	 }	 
 	 else
          die('<script type="text/javascript">
-                      alert("That uder dont exist!");
+                      alert("That user dont exist!");
                          location="index.php";
                            </script>');		 
 	  

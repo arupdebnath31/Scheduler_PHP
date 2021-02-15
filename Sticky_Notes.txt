@@ -1,0 +1,4 @@
+npm install --save sweetalert
+
+Sweet Alert can be the next upgration of this project:::
+package git link:   https://github.com/t4t5/sweetalert
