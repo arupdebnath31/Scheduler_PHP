@@ -17,7 +17,7 @@ tr:hover,tr.alt:hover
     background: #f7dcdf;
 }
 
-</body>
+
 </style>
 </head>
 <body>

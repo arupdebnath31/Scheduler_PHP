@@ -24,7 +24,6 @@ td {
 }
 
 
-</body>
 </style>
 </head>
 <body><br>

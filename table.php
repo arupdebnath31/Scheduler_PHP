@@ -48,7 +48,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);  //mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -60,9 +60,9 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$faculty = MYSQL_RESULT($result,$i,"faculty_name");
-					$course = MYSQL_RESULT($result,$i,"course_name");
-					$subject = MYSQL_RESULT($result,$i,"subject_description");
+					$faculty = mysqli_free_result($result,$i,"faculty_name");  //mysqli_free_result($result);
+					$course = mysqli_free_result($result,$i,"course_name");
+					$subject = mysqli_free_result($result,$i,"subject_description");
 					
 			 
 			 if ($hidden_pday == 1 && $hidden_pstime == 1){	
@@ -88,7 +88,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -100,16 +100,16 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 2 && $hidden_pstime == 1){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
-					end;
+					end();  //end($a);
 						}
 						
 	$i++;	 
@@ -130,7 +130,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -142,12 +142,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 3 && $hidden_pstime == 1){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -172,7 +172,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -184,12 +184,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 4 && $hidden_pstime == 1){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -214,7 +214,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -226,12 +226,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 5 && $hidden_pstime == 1){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -260,7 +260,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -272,12 +272,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 1 && $hidden_pstime == 3){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -302,7 +302,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -314,12 +314,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday ==2 && $hidden_pstime == 3){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -344,7 +344,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -356,12 +356,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 3 && $hidden_pstime == 3){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -386,7 +386,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -398,12 +398,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 4 && $hidden_pstime == 3){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -428,7 +428,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -440,12 +440,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 5 && $hidden_pstime == 3){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -474,7 +474,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -486,12 +486,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 1 && $hidden_pstime == 5){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -516,7 +516,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -528,12 +528,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 2 && $hidden_pstime == 5){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -558,7 +558,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -570,12 +570,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 3 && $hidden_pstime == 5){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -599,7 +599,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -611,12 +611,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 4 && $hidden_pstime == 5){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -640,7 +640,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -652,12 +652,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 5 && $hidden_pstime == 5){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -685,7 +685,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -697,12 +697,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 1 && $hidden_pstime == 7){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -726,7 +726,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -738,12 +738,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 2 && $hidden_pstime == 7){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -767,7 +767,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -779,12 +779,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 3 && $hidden_pstime == 7){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -808,7 +808,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -820,12 +820,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 4 && $hidden_pstime == 7){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -849,7 +849,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -861,12 +861,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 5 && $hidden_pstime == 7){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -894,7 +894,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -906,12 +906,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 1 && $hidden_pstime == 9){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -935,7 +935,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -947,12 +947,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 2 && $hidden_pstime == 9){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -976,7 +976,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -988,12 +988,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 3 && $hidden_pstime == 9){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -1017,7 +1017,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -1029,12 +1029,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 4 && $hidden_pstime == 9){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -1058,7 +1058,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -1070,12 +1070,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 5 && $hidden_pstime == 9){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -1103,7 +1103,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -1115,12 +1115,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 1 && $hidden_pstime == 11){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -1144,7 +1144,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -1156,12 +1156,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 2 && $hidden_pstime == 11){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -1185,7 +1185,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -1197,12 +1197,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 3 && $hidden_pstime == 11){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -1226,7 +1226,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -1238,12 +1238,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 4 && $hidden_pstime == 11){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -1267,7 +1267,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -1279,12 +1279,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 5 && $hidden_pstime == 11){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -1312,7 +1312,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -1324,12 +1324,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 1 && $hidden_pstime == 13){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -1353,7 +1353,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -1365,12 +1365,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 2 && $hidden_pstime == 13){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -1394,7 +1394,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -1406,12 +1406,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 3 && $hidden_pstime == 13){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -1435,7 +1435,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -1447,12 +1447,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 4 && $hidden_pstime == 13){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -1476,7 +1476,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -1488,12 +1488,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 5 && $hidden_pstime == 13){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -1521,7 +1521,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -1533,12 +1533,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 1 && $hidden_pstime == 15){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -1562,7 +1562,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -1574,12 +1574,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 2 && $hidden_pstime == 15){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -1603,7 +1603,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -1615,12 +1615,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 3 && $hidden_pstime == 15){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -1644,7 +1644,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -1656,12 +1656,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 4 && $hidden_pstime == 15){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -1685,7 +1685,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -1697,12 +1697,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 5 && $hidden_pstime == 15){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -1730,7 +1730,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -1742,12 +1742,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 1 && $hidden_pstime == 17){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -1771,7 +1771,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -1783,12 +1783,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 2 && $hidden_pstime == 17){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -1812,7 +1812,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -1824,12 +1824,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 3 && $hidden_pstime == 17){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -1853,7 +1853,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -1865,12 +1865,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 4 && $hidden_pstime == 17){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -1894,7 +1894,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -1906,12 +1906,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 5 && $hidden_pstime == 17){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -1939,7 +1939,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -1951,12 +1951,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 1 && $hidden_pstime == 19){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -1980,7 +1980,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -1992,12 +1992,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 2 && $hidden_pstime == 19){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -2021,7 +2021,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -2033,12 +2033,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 3 && $hidden_pstime == 19){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -2062,7 +2062,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -2074,12 +2074,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 4 && $hidden_pstime == 19){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -2103,7 +2103,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -2115,12 +2115,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 5 && $hidden_pstime == 19){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -2148,7 +2148,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -2160,12 +2160,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 1 && $hidden_pstime == 21){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -2189,7 +2189,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -2201,12 +2201,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 2 && $hidden_pstime == 21){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -2230,7 +2230,7 @@
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -2242,12 +2242,12 @@
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 3 && $hidden_pstime == 21){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -2271,7 +2271,7 @@ $result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -2283,12 +2283,12 @@ $result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 4 && $hidden_pstime == 21){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -2312,7 +2312,7 @@ $result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -2324,12 +2324,12 @@ $result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 5 && $hidden_pstime == 21){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -2357,7 +2357,7 @@ $result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -2369,12 +2369,12 @@ $result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 1 && $hidden_pstime == 23){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -2398,7 +2398,7 @@ $result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -2410,12 +2410,12 @@ $result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 2 && $hidden_pstime == 23){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -2439,7 +2439,7 @@ $result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -2451,12 +2451,12 @@ $result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 3 && $hidden_pstime == 23){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -2480,7 +2480,7 @@ $result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -2492,12 +2492,12 @@ $result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 4 && $hidden_pstime == 23){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -2521,7 +2521,7 @@ $result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -2533,12 +2533,12 @@ $result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 5 && $hidden_pstime == 23){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -2566,7 +2566,7 @@ $result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -2578,12 +2578,12 @@ $result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 1 && $hidden_pstime == 25){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -2607,7 +2607,7 @@ $result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -2619,12 +2619,12 @@ $result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 2 && $hidden_pstime == 25){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -2648,7 +2648,7 @@ $result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -2660,12 +2660,12 @@ $result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 3 && $hidden_pstime == 25){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -2689,7 +2689,7 @@ $result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -2701,12 +2701,12 @@ $result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 4 && $hidden_pstime == 25){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
@@ -2730,7 +2730,7 @@ $result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`
 			{
 			die("Query to show fields from table failed");
 			}
-		$numberOfRows = MYSQL_NUMROWS($result);
+		$numberOfRows = mysqli_num_rows($result);
 		
 		If ($numberOfRows == 0) 
 			{
@@ -2742,12 +2742,12 @@ $result = mysqli_query($connect,"SELECT `sched`.*,`room`.`room_name` ,`course`.`
 			while ($i<$numberOfRows)
 				{			
 
-					$hidden_psubcat = MYSQL_RESULT($result,$i,"sub_code");
-					$hidden_pcourse = MYSQL_RESULT($result,$i,"course_yrSec");
-					$hidden_proom = MYSQL_RESULT($result,$i,"room_name");
-					$hidden_pt = MYSQL_RESULT($result,$i,"teacher_name");
-					$hidden_pday = MYSQL_RESULT($result,$i,"day_id");
-					$hidden_pstime = MYSQL_RESULT($result,$i,"time_s_id");
+					$hidden_psubcat = mysqli_free_result($result,$i,"sub_code");
+					$hidden_pcourse = mysqli_free_result($result,$i,"course_yrSec");
+					$hidden_proom = mysqli_free_result($result,$i,"room_name");
+					$hidden_pt = mysqli_free_result($result,$i,"teacher_name");
+					$hidden_pday = mysqli_free_result($result,$i,"day_id");
+					$hidden_pstime = mysqli_free_result($result,$i,"time_s_id");
 			 
 			 if ($hidden_pday == 5 && $hidden_pstime == 25){	
 			  		echo $hidden_pcourse . '<br>'.$hidden_psubcat . '<br>'.$hidden_proom;
